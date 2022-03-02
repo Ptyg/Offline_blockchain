@@ -1,12 +1,24 @@
-#include "blockchain.h"
+#include "blockchain.hpp"
 
+#ifndef IOSTREAM
+#define IOSTREAM
 #include <iostream>
+#endif IOSTREAM
 
-class BlockChain::showBlocks(int amount = 1, bool show_all = false){
-    for (size_t i = blockchain.size() - 1; i >= amount || i >= 0; i--)
+void BlockChain::show_blocks(int amount = 1) const{    
+    const size_t chainSize = blockchain.size();
+
+    if (amount > chainSize) {
+        std::cout << "Your number is bigger than chain size\nChain size is: " << chainSize;
+        return;
+    }
+
+    for (size_t i = chainSize - 1; i >= chainSize - amount || i >= 0; i--)
     {
-        std::cout << "\n###########################################\n"
-        blockchain[i].display_info();
-        std::cout << "\n###########################################\n"
+        std::cout << "\n################################## " << i << " ##################################\n";
+        blockchain[i].display_block_info();
+        std::cout << "\n#############################################################################\n";
     }
 }
+
+void BlockChain::show_block_info(int id) const{ blockchain[id].display_block_info(); }

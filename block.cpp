@@ -39,5 +39,5 @@ void Block::display_block_info() const{
     std::cout << "Block id: " << block_id << '\n';
     std::cout << "Previous hash: " << prevHash << '\n';
     std::cout << "Block hash: " << blockHash << '\n';
-    std::cout << "transaction amount: " << transactionNumber << '\n';
+    std::cout << "Transaction amount: " << transactionNumber << '\n';
 }
