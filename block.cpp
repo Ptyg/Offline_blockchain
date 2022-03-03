@@ -10,9 +10,10 @@
 #include <string>
 #endif STRING
 
+int Block::idx = 0;
 
-Block::Block(size_t idx, std::vector<Transaction>&& transactions, size_t prevHash) 
-    : block_id(idx), prevHash(prevHash), transactions(transactions){}
+Block::Block(std::vector<Transaction>&& transactions, size_t prevHash) 
+    : block_id(idx++), prevHash(prevHash), transactions(transactions){}
 
 const size_t& Block::getHash() const{ return blockHash; }
 const size_t& Block::getPreviousHash() const{ return prevHash; }
@@ -40,4 +41,8 @@ void Block::display_block_info() const{
     std::cout << "Previous hash: " << prevHash << '\n';
     std::cout << "Block hash: " << blockHash << '\n';
     std::cout << "Transaction amount: " << transactionNumber << '\n';
+}
+
+void Block::addTransactions(std::vector<Transaction>&& transactionPool){
+
 }

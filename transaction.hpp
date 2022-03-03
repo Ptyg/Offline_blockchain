@@ -16,6 +16,7 @@ public:
     const std::string& get_sender() const;
     const std::string& get_recipient() const;
     const time_t& get_create_time() const;
+    void add_in_transaction_pool();
 };
 
 #endif TRANSACTION

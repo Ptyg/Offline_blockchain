@@ -5,6 +5,8 @@
 #include <iostream>
 #endif IOSTREAM
 
+size_t BlockChain::chainSize = 0;
+
 void BlockChain::show_blocks(int amount = 1) const{    
     const size_t chainSize = blockchain.size();
 
@@ -22,3 +24,5 @@ void BlockChain::show_blocks(int amount = 1) const{
 }
 
 void BlockChain::show_block_info(int id) const{ blockchain[id].display_block_info(); }
+
+Block BlockChain::get_latest_block() { return blockchain[chainSize]; }
