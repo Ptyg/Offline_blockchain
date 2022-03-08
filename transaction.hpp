@@ -8,6 +8,7 @@ class Transaction{
     std::string sender, recipient;
     time_t create_time;
 public:
+    Transaction(size_t&& coin_number, std::string&& sender, std::string&& recipient, time_t&& create_time);
     void display_transaction_info() const;
     const size_t& get_coin_number() const;
     const std::string& get_sender() const;

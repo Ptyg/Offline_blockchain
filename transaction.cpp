@@ -1,6 +1,10 @@
 #include "transaction.hpp"
 #include <iostream>
 
+Transaction::Transaction(size_t&& coin_number, std::string&& sender, std::string&& recipient, time_t&& create_time) 
+    : coin_number(coin_number), sender(sender), recipient(recipient), create_time(create_time) {} 
+
+
 void Transaction::display_transaction_info() const{
     std::cout << "Sender: " << sender << '\n';
     std::cout << "Recipient: " << recipient << '\n';
