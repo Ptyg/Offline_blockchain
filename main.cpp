@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <ctime>
 
 void add_transaction(TransactionPool& pool){
     size_t coinNum;

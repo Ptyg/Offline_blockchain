@@ -13,8 +13,6 @@ const size_t& Block::getPreviousHash() const{ return prevHash; }
 
 bool Block::isHashValid(){ return generate_hash() == blockHash; }
 
-const size_t& Block::getHash() const{ return blockHash;}
-const size_t& Block::getPreviousHash() const{return prevHash; }
 
 size_t Block::generate_hash(){
     std::hash<size_t> finalHash;

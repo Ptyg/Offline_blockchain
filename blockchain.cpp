@@ -2,7 +2,9 @@
 
 #include <iostream>
 
-void BlockChain::show_blocks(int amount = 1){    
+BlockChain::BlockChain() {}
+
+void BlockChain::show_blocks(int amount /*= 1*/){    
     const size_t chainSize = blockchain.size();
 
     if (amount > chainSize) {
