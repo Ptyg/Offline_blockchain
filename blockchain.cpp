@@ -2,9 +2,7 @@
 
 #include <iostream>
 
-size_t BlockChain::chainSize = 0;
-
-void BlockChain::show_blocks(int amount = 1) const{    
+void BlockChain::show_blocks(int amount = 1){    
     const size_t chainSize = blockchain.size();
 
     if (amount > chainSize) {
@@ -20,6 +18,10 @@ void BlockChain::show_blocks(int amount = 1) const{
     }
 }
 
-void BlockChain::show_block_info(int id) const{ blockchain[id].display_block_info(); }
+void BlockChain::show_block_info(int id) { blockchain[id].display_block_info(); }
 
-Block BlockChain::get_latest_block() { return blockchain[chainSize]; }
+Block& BlockChain::get_latest_block() { return blockchain[blockchain.size() - 1]; }
+
+void BlockChain::add_block(Block&& newBlock){
+    blockchain.push_back(newBlock);
+}

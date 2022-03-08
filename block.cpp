@@ -33,9 +33,10 @@ void Block::display_block_info() const{
     std::cout << "Block id: " << block_id << '\n';
     std::cout << "Previous hash: " << prevHash << '\n';
     std::cout << "Block hash: " << blockHash << '\n';
-    std::cout << "Transaction amount: " << transactionNumber << '\n';
+    std::cout << "Transaction amount: " << transactions.size() << '\n';
 }
 
+// NOT USE BCS THIS FUNC IS NOT LOGICALLY COMPLETE
 void Block::addTransactions(std::vector<Transaction>&& transactionPool){
-
+    transactions = transactionPool;
 }

@@ -11,7 +11,6 @@ class Block{
     size_t generate_hash();
     
     std::vector<Transaction> transactions;
-    const int transactionNumber = 3;
     static int idx;
     
 public:

@@ -5,6 +5,7 @@ int TransactionPool::currentTransactionNumber = 0;
 
 void TransactionPool::loadTransactionsInBlock(){
     Block newBlock(std::move(transactionPool), BlockChain::get_latest_block().getHash());
+    BlockChain::add_block(std::move(newBlock));
 }
 
 void TransactionPool::addTransaction(Transaction&& transaction){

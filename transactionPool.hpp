@@ -7,11 +7,11 @@
 #include <vector>
 
 class TransactionPool{
-    TransactionPool(){};
     std::vector<Transaction> transactionPool;
     const int maxTransactionNumber = 3;
     static int currentTransactionNumber;
 public:
+    TransactionPool();
     TransactionPool(TransactionPool&) = delete;
     void operator=(const TransactionPool&) = delete;
 
