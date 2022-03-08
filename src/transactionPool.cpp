@@ -1,6 +1,8 @@
 #include "transactionPool.hpp"
 #include "blockchain.hpp"
 
+TransactionPool::TransactionPool() {}
+
 int TransactionPool::currentTransactionNumber = 0;
 
 void TransactionPool::loadTransactionsInBlock(){
