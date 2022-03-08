@@ -21,4 +21,4 @@ public:
     bool isHashValid();
     void addTransactions(std::vector<Transaction>&&);
 };
-#endif BLOCK_HPP
+#endif

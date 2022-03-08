@@ -14,4 +14,4 @@ public:
     static Block& get_latest_block();
 };
 
-#endif BLOCKCHAIN_HPP
+#endif

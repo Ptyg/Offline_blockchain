@@ -17,4 +17,4 @@ public:
     void add_in_transaction_pool();
 };
 
-#endif TRANSACTION_HPP
+#endif
