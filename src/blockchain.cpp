@@ -27,3 +27,11 @@ Block& BlockChain::get_latest_block() { return blockchain[blockchain.size() - 1]
 void BlockChain::add_block(Block&& newBlock){
     blockchain.push_back(newBlock);
 }
+
+std::vector<Block> BlockChain::initBlockchain(){ 
+    std::vector<Block> temp;
+    temp.reserve(10); 
+    return temp;    
+}
+
+std::vector<Block> BlockChain::blockchain(initBlockchain());
