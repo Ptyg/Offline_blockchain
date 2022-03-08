@@ -1,9 +1,5 @@
 #include "transaction.hpp"
-
-#ifndef IOSTREAM
-#define IOSTREAM
 #include <iostream>
-#endif IOSTREAM
 
 void Transaction::display_transaction_info() const{
     std::cout << "Sender: " << sender << '\n';

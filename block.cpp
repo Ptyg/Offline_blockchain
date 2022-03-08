@@ -1,14 +1,7 @@
 #include "block.hpp"
 
-#ifndef IOSTREAM
-#define IOSTREAM
 #include <iostream>
-#endif IOSTREAM
-
-#ifndef STRING
-#define STRING
 #include <string>
-#endif STRING
 
 int Block::idx = 0;
 

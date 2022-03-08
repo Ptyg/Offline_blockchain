@@ -1,9 +1,6 @@
 #include "blockchain.hpp"
 
-#ifndef IOSTREAM
-#define IOSTREAM
 #include <iostream>
-#endif IOSTREAM
 
 size_t BlockChain::chainSize = 0;
 
