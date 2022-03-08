@@ -1,13 +1,10 @@
-#ifndef TRANSACTION_POOL
-#define TRANSACTION_POOL
+#ifndef TRANSACTION_POOL_HPP
+#define TRANSACTION_POOL_HPP
 
 #include "transaction.hpp"
 #include "block.hpp"
 
-#ifndef VECTOR
-#define VECTOR
 #include <vector>
-#endif VECTOR
 
 class TransactionPool{
     TransactionPool(){};

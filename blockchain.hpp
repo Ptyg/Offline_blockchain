@@ -1,12 +1,9 @@
-#ifndef BLOCKCHAIN
-#define BLOCKCHAIN
+#ifndef BLOCKCHAIN_HPP
+#define BLOCKCHAIN_HPP
 
 #include "block.hpp"
 
-#ifndef VECTOR
-#define VECTOR
 #include <vector>
-#endif VECTOR
 
 class BlockChain{
     static std::vector<Block> blockchain;
@@ -17,4 +14,4 @@ public:
     static Block get_latest_block();
 };
 
-#endif BLOCKCHAIN
+#endif BLOCKCHAIN_HPP

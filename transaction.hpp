@@ -1,10 +1,7 @@
-#ifndef TRANSACTION
-#define TRANSACTION
+#ifndef TRANSACTION_HPP
+#define TRANSACTION_HPP
 
-#ifndef STRING
-#define STRING
 #include <string>
-#endif
 
 class Transaction{
     size_t coin_number;
@@ -19,4 +16,4 @@ public:
     void add_in_transaction_pool();
 };
 
-#endif TRANSACTION
+#endif TRANSACTION_HPP

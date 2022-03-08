@@ -1,13 +1,9 @@
-#ifndef BLOCK
-#define BLOCK
+#ifndef BLOCK_HPP
+#define BLOCK_HPP
 
 #include "transaction.hpp"
 
-#ifndef VECTOR
-#define VECTOR
 #include <vector>
-#endif VECT
-
 
 class Block{
     size_t block_id;
@@ -26,4 +22,4 @@ public:
     bool isHashValid();
     void addTransactions(std::vector<Transaction>&&);
 };
-#endif BLOCK
+#endif BLOCK_HPP
