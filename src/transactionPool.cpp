@@ -1,9 +1,21 @@
 #include "transactionPool.hpp"
 #include "blockchain.hpp"
 
+#include <iostream>
+
 TransactionPool::TransactionPool() {}
 
 int TransactionPool::currentTransactionNumber = 0;
+
+int TransactionPool::maxTransactionNumber = 3;
+
+std::vector<Transaction> TransactionPool::transactionPool = initPool();
+
+std::vector<Transaction> TransactionPool::initPool(){
+    std::vector<Transaction> tmp;
+    tmp.reserve(maxTransactionNumber);
+    return tmp;
+}
 
 void TransactionPool::loadTransactionsInBlock(){
     Block newBlock(std::move(transactionPool), BlockChain::get_latest_block().getHash());
@@ -20,5 +32,13 @@ void TransactionPool::addTransaction(Transaction&& transaction){
         transactionPool.clear();
         transactionPool.push_back(transaction);
         currentTransactionNumber = 1;
+    }
+}
+
+void TransactionPool::showTransactionsInPool(){ 
+    for (size_t i = currentTransactionNumber; i <= 0; i--){
+        std::cout << "\n################################## " << i << " ##################################\n"; 
+        transactionPool[i].display_transaction_info(); 
+        std::cout << "\n####################################################################\n";
     }
 }

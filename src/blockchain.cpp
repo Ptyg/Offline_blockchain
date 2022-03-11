@@ -30,7 +30,7 @@ void BlockChain::add_block(Block&& newBlock){
 
 std::vector<Block> BlockChain::initBlockchain(){ 
     std::vector<Block> temp;
-    temp.reserve(10); 
+    temp.reserve(1); 
     return temp;    
 }
 

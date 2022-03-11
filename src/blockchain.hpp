@@ -7,7 +7,7 @@
 
 class BlockChain{
     static std::vector<Block> blockchain;
-    static std::vector<Block> initBlockchain();
+    static std::vector<Block> initBlockchain(); 
 public:
     BlockChain();
     static void show_blocks(int amount = 1);

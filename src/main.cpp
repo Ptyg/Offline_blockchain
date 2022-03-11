@@ -21,10 +21,6 @@ void add_transaction(TransactionPool& pool){
     pool.addTransaction(std::move(newTransaction));
 }
 
-void show_all_blocks(BlockChain& chain, int& numberOfBlocks){
-    chain.show_blocks(3);
-}
-
 int main()
 {
     BlockChain chain;
@@ -32,9 +28,10 @@ int main()
     char ch;
 
     while (ch != 'E'){
-        std::cout << "What do you want to do?\n\n";
+        std::cout << "\nWhat do you want to do?\n\n";
         std::cout << "01. Add transaction\n";
         std::cout << "02. Show blocks\n";
+        std::cout << "03. Show trans pool\n";
         std::cout << "E. Exit\n";
         std::cout << "Choice: "; std::cin >> ch;
 
@@ -42,16 +39,14 @@ int main()
             case '1': add_transaction(pool); break;
             case '2': 
                 int numberOfBlocks;
-                std::cout << "\nNumber o blocks: "; std::cin >> numberOfBlocks;  
-                show_all_blocks(chain, numberOfBlocks); 
+                std::cout << "\nNumber o blocks: "; std::cin >> numberOfBlocks;
+                chain.show_blocks(numberOfBlocks); 
             break;
+            case '3': pool.showTransactionsInPool(); break;
             case 'E': break;
             default: std::cout << '\a'; break;
         }
-
     }
-    
-
     return 0;
 }
 

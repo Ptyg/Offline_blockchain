@@ -7,16 +7,18 @@
 #include <vector>
 
 class TransactionPool{
-    std::vector<Transaction> transactionPool;
-    const int maxTransactionNumber = 3;
+    static std::vector<Transaction> transactionPool;
+    static std::vector<Transaction> initPool();
+    static int maxTransactionNumber;
     static int currentTransactionNumber;
 public:
     TransactionPool();
     TransactionPool(TransactionPool&) = delete;
     void operator=(const TransactionPool&) = delete;
 
-    void addTransaction(Transaction&&);
-    void loadTransactionsInBlock();
+    static void addTransaction(Transaction&&);
+    static void loadTransactionsInBlock();
+    static void showTransactionsInPool();
 };
 
 #endif
