@@ -40,9 +40,9 @@ int main()
             case '2': 
                 int numberOfBlocks;
                 std::cout << "\nNumber o blocks: "; std::cin >> numberOfBlocks;
-                chain.show_blocks(numberOfBlocks); 
+                BlockChain::show_blocks(numberOfBlocks); 
             break;
-            case '3': pool.showTransactionsInPool(); break;
+            case '3': TransactionPool::showTransactionsInPool(); break;
             case 'E': break;
             default: std::cout << '\a'; break;
         }

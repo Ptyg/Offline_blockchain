@@ -36,9 +36,10 @@ void TransactionPool::addTransaction(Transaction&& transaction){
 }
 
 void TransactionPool::showTransactionsInPool(){ 
-    for (size_t i = currentTransactionNumber; i <= 0; i--){
+    std::cout << "\n\t\t<<Transaction pool>>\n";
+    for (size_t i = currentTransactionNumber - 1; i <= 0; i--){
         std::cout << "\n################################## " << i << " ##################################\n"; 
         transactionPool[i].display_transaction_info(); 
-        std::cout << "\n####################################################################\n";
+        std::cout << "#######################################################################\n";
     }
 }
