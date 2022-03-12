@@ -38,11 +38,13 @@ int main()
 
         switch(ch){
             case '1': add_transaction(&pool); break;
+
             case '2': 
                 int numberOfBlocks;
                 std::cout << "\nNumber o blocks: "; std::cin >> numberOfBlocks;
                 BlockChain::show_blocks(numberOfBlocks); 
             break;
+            
             case '3': TransactionPool::showTransactionsInPool(); break;
             case '4': break;
             case 'E': break;

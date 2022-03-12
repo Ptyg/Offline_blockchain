@@ -32,3 +32,11 @@ void Block::display_block_info() const{
     std::cout << "Block hash: " << blockHash << '\n';
     std::cout << "Transaction amount: " << transactions.size() << '\n';
 }
+
+void Block::display_block_info_with_transactions_info() const{ 
+    display_block_info();
+
+    for (auto& transaction : transactions)
+        transaction.display_transaction_info();
+    
+}

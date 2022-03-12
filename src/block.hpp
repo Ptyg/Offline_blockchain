@@ -17,6 +17,7 @@ public:
     
     Block(std::vector<Transaction>&&, size_t);
     void display_block_info() const;
+    void display_block_info_with_transactions_info() const;
     const size_t& getHash() const;
     const size_t& getPreviousHash() const;
     bool isHashValid();
