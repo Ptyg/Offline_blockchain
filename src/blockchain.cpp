@@ -35,3 +35,12 @@ std::vector<Block> BlockChain::initBlockchain(){
 }
 
 std::vector<Block> BlockChain::blockchain(initBlockchain());
+
+BlockChain* BlockChain::blockchainInstance = nullptr;
+
+BlockChain* BlockChain::get_instance(){
+    if (blockchainInstance == nullptr){
+        blockchainInstance = new BlockChain();
+    }
+    return blockchainInstance;
+}
