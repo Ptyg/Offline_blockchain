@@ -44,7 +44,7 @@ int main()
                 std::cout << "\nNumber o blocks: "; std::cin >> numberOfBlocks;
                 BlockChain::show_blocks(numberOfBlocks); 
             break;
-            
+
             case '3': TransactionPool::showTransactionsInPool(); break;
             case '4': break;
             case 'E': break;

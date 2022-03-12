@@ -4,7 +4,7 @@
 
 BlockChain::BlockChain() {}
 
-void BlockChain::show_blocks(int amount /*= 1*/){    
+void BlockChain::show_blocks(size_t amount /*= 1*/, bool transactionInfo){    
     const size_t chainSize = blockchain.size();
 
     if (amount > chainSize) {
@@ -15,12 +15,16 @@ void BlockChain::show_blocks(int amount /*= 1*/){
     for (size_t i = chainSize - 1; i >= chainSize - amount || i >= 0; i--)
     {
         std::cout << "\n################################## " << i << " ##################################\n";
-        blockchain[i].display_block_info();
-        std::cout << "\n#############################################################################\n";
+        if (transactionInfo != false){
+            blockchain[i].display_block_info_with_transactions_info();
+        }
+        else{
+            blockchain[i].display_block_info();
+        }
     }
 }
 
-void BlockChain::show_block_info(int id) { blockchain[id].display_block_info(); }
+void BlockChain::show_block_info(size_t id) { blockchain[id].display_block_info(); }
 
 Block& BlockChain::get_latest_block() { return blockchain[blockchain.size() - 1]; }
 
