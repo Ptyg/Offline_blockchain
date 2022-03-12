@@ -23,8 +23,8 @@ void add_transaction(TransactionPool& pool){
 
 int main()
 {
-    BlockChain chain;
-    TransactionPool pool;
+    BlockChain* chain = BlockChain::get_instance();
+    TransactionPool* pool = TransactionPool::get_instance();
     char ch;
 
     while (ch != 'E'){

@@ -3,11 +3,12 @@
 
 #include <iostream>
 
-TransactionPool::TransactionPool() {}
-
+////// static private things ///////
 int TransactionPool::currentTransactionNumber = 0;
 
 int TransactionPool::maxTransactionNumber = 3;
+
+TransactionPool* TransactionPool::transactionPoolInstance = nullptr;
 
 std::vector<Transaction> TransactionPool::transactionPool = initPool();
 
@@ -16,6 +17,9 @@ std::vector<Transaction> TransactionPool::initPool(){
     tmp.reserve(maxTransactionNumber);
     return tmp;
 }
+////////////////////////////////////////////////////////////////////////////////////////
+
+TransactionPool::TransactionPool() {}
 
 void TransactionPool::loadTransactionsInBlock(){
     Block newBlock(std::move(transactionPool), BlockChain::get_latest_block().getHash());
@@ -42,4 +46,11 @@ void TransactionPool::showTransactionsInPool(){
         transactionPool[i].display_transaction_info(); 
         std::cout << "#######################################################################\n";
     }
+}
+
+TransactionPool* TransactionPool::get_instance(){
+    if (transactionPoolInstance == nullptr){
+        transactionPoolInstance = new TransactionPool();
+    }
+    return transactionPoolInstance;
 }

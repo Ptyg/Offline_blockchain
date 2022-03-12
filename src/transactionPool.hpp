@@ -11,14 +11,17 @@ class TransactionPool{
     static std::vector<Transaction> initPool();
     static int maxTransactionNumber;
     static int currentTransactionNumber;
-public:
+    static TransactionPool *transactionPoolInstance;
+protected:
     TransactionPool();
+public:
     TransactionPool(TransactionPool&) = delete;
     void operator=(const TransactionPool&) = delete;
 
     static void addTransaction(Transaction&&);
     static void loadTransactionsInBlock();
     static void showTransactionsInPool();
+    static TransactionPool* get_instance();
 };
 
 #endif
