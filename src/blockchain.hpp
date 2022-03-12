@@ -4,7 +4,6 @@
 #include "block.hpp"
 
 #include <vector>
-#include <functional>
 
 class BlockChain{
     static std::vector<Block> blockchain;
@@ -15,7 +14,7 @@ protected:
 public:
     BlockChain(BlockChain&) = delete;
     void operator=(const BlockChain&) = delete;
-    static void show_blocks(size_t amount = 1, std::function<void()> transactionInfo = nullptr);
+    static void show_blocks(size_t amount = 1, bool transactionInfo = false);
     static void show_block_info(size_t id);
     static void add_block(Block&& newBlock);
     static Block& get_latest_block();
