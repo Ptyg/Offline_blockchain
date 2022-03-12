@@ -31,7 +31,8 @@ int main()
         std::cout << "\nWhat do you want to do?\n\n";
         std::cout << "01. Add transaction\n";
         std::cout << "02. Show blocks\n";
-        std::cout << "03. Show trans pool\n";
+        std::cout << "03. Show transaction pool\n";
+        std::cout << "04. Show extra info from blocks about transactions\n";
         std::cout << "E. Exit\n";
         std::cout << "Choice: "; std::cin >> ch;
 
@@ -43,6 +44,7 @@ int main()
                 BlockChain::show_blocks(numberOfBlocks); 
             break;
             case '3': TransactionPool::showTransactionsInPool(); break;
+            case '4': break;
             case 'E': break;
             default: std::cout << '\a'; break;
         }

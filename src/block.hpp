@@ -8,8 +8,7 @@
 class Block{
     size_t block_id;
     size_t prevHash, blockHash;
-    size_t generate_hash();
-    
+    size_t generate_hash(); 
     std::vector<Transaction> transactions;
     static int idx;
     
@@ -21,6 +20,5 @@ public:
     const size_t& getHash() const;
     const size_t& getPreviousHash() const;
     bool isHashValid();
-    void addTransactions(std::vector<Transaction>&&);
 };
 #endif

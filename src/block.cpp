@@ -13,7 +13,6 @@ const size_t& Block::getPreviousHash() const{ return prevHash; }
 
 bool Block::isHashValid(){ return generate_hash() == blockHash; }
 
-
 size_t Block::generate_hash(){
     std::hash<size_t> finalHash;
     std::hash<std::string> hash1;
@@ -32,9 +31,4 @@ void Block::display_block_info() const{
     std::cout << "Previous hash: " << prevHash << '\n';
     std::cout << "Block hash: " << blockHash << '\n';
     std::cout << "Transaction amount: " << transactions.size() << '\n';
-}
-
-// NOT USE BCS THIS FUNC IS NOT LOGICALLY COMPLETE
-void Block::addTransactions(std::vector<Transaction>&& transactionPool){
-    transactions = transactionPool;
 }
