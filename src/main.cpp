@@ -8,7 +8,7 @@
 #include <memory>
 #include <ctime>
 
-void add_transaction(TransactionPool** pool){
+void add_transaction(const TransactionPool* pool){
     size_t coinNum;
     std::string sender, recipient;
     time_t createdTime;
@@ -18,7 +18,7 @@ void add_transaction(TransactionPool** pool){
     std::cout << "Recipient: "; std::cin >> recipient;
 
     Transaction newTransaction(std::move(coinNum), std::move(sender), std::move(recipient), std::move(time(&createdTime)));
-    (*pool)->addTransaction(std::move(newTransaction));
+    pool->addTransaction(std::move(newTransaction));
 }
 
 int main()
@@ -37,7 +37,7 @@ int main()
         std::cout << "Choice: "; std::cin >> ch;
 
         switch(ch){
-            case '1': add_transaction(&pool); break;
+            case '1': add_transaction(pool); break;
 
             case '2': 
                 int numberOfBlocks;
@@ -46,7 +46,7 @@ int main()
             break;
 
             case '3': TransactionPool::showTransactionsInPool(); break;
-            case '4': break;
+            case '4': BlockChain::show_blocks(1, true); break;
             case 'E': break;
             default: std::cout << '\a'; break;
         }
