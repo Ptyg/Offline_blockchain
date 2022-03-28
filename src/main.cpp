@@ -23,7 +23,7 @@ void add_transaction(const TransactionPool* pool){
 
 int main()
 {
-    BlockChain* chain = BlockChain::get_instance();
+    BlockChain* chain = BlockChain::get_instance(); 
     TransactionPool* pool = TransactionPool::get_instance();
     char ch;
 
@@ -51,7 +51,9 @@ int main()
             default: std::cout << '\a'; break;
         }
     }
+    delete chain;
+    delete pool;
     return 0;
 }
 
-// проверить на тестах
+// идея с массивом не увенчалась успехом, возвращаемся к ветору
