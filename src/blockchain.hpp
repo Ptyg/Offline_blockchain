@@ -9,12 +9,13 @@ class BlockChain{
     static std::vector<Block> blockchain;
     static std::vector<Block> initBlockchain(); 
     static BlockChain *blockchainInstance;
+    static int currentBlockNumber;
 protected:
     BlockChain();
 public:
     BlockChain(BlockChain&) = delete;
     void operator=(const BlockChain&) = delete;
-    static void show_blocks(size_t amount = 1, bool transactionInfo = false);
+    static void show_blocks(int amount = 1, bool transactionInfo = false);
     static void show_block_info(size_t id);
     static void add_block(Block&& newBlock);
     static Block& get_latest_block();

@@ -2,39 +2,40 @@
 
 #include <iostream>
 
+int BlockChain::currentBlockNumber = 0;
+
 BlockChain::BlockChain() {}
 
-void BlockChain::show_blocks(size_t amount /*= 1*/, bool transactionInfo){    
-    const size_t chainSize = blockchain.size();
+void BlockChain::show_blocks(int amount /*= 1*/, bool transactionInfo){    
+    const int chainSize = blockchain.size();
 
     if (amount > chainSize) {
         std::cout << "Your number is bigger than chain size\nChain size is: " << chainSize;
         return;
     }
 
-    for (size_t i = chainSize - 1; i >= chainSize - amount || i >= 0; i--)
+    for (int i = currentBlockNumber - 1; i >= chainSize - amount; i--)
     {
         std::cout << "\n################################## " << i << " ##################################\n";
-        if (transactionInfo != false){
+        if (transactionInfo){
             blockchain[i].display_block_info_with_transactions_info();
         }
-        else{
-            blockchain[i].display_block_info();
-        }
+        blockchain[i].display_block_info();
     }
 }
 
 void BlockChain::show_block_info(size_t id) { blockchain[id].display_block_info(); }
 
-Block& BlockChain::get_latest_block() { return blockchain[blockchain.size() - 1]; }
+Block& BlockChain::get_latest_block() { return blockchain[currentBlockNumber - 1]; }
 
 void BlockChain::add_block(Block&& newBlock){
     blockchain.push_back(std::move(newBlock));
+    currentBlockNumber++;
 }
 
 std::vector<Block> BlockChain::initBlockchain(){ 
     std::vector<Block> temp;
-    temp.reserve(1); 
+    temp.reserve(100); 
     return temp;    
 }
 
