@@ -36,14 +36,15 @@ void TransactionPool::addTransaction(Transaction&& transaction){
         transactionPool.clear();
         transactionPool.push_back(std::move(transaction));
         currentTransactionNumber = 1;
+        std::cout << "Transaction added in pool\n";
     }
 }
 
 void TransactionPool::showTransactionsInPool(){ 
     std::cout << "\n\t\t<<Transaction pool>>\n";
-    for (size_t i = currentTransactionNumber - 1; i <= 0; i--){
-        std::cout << "\n################################## " << i << " ##################################\n"; 
-        transactionPool[i].display_transaction_info(); 
+    for (const auto& transaction : transactionPool){
+        std::cout << "#######################################################################\n";
+        transaction.display_transaction_info(); 
         std::cout << "#######################################################################\n";
     }
 }
