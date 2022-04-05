@@ -27,6 +27,7 @@ int main()
     const BlockChain* chain = BlockChain::get_instance(); 
     const TransactionPool* pool = TransactionPool::get_instance();
     char ch;
+    int numberOfBlocks;
 
     while (ch != 'E'){
         std::cout << "\nWhat do you want to do?\n\n";
@@ -41,15 +42,19 @@ int main()
             case '1': add_transaction(pool); break;
 
             case '2': 
-                int numberOfBlocks;
                 std::cout << "\nNumber o blocks: "; std::cin >> numberOfBlocks;
                 BlockChain::show_blocks(numberOfBlocks); 
             break;
 
             case '3': TransactionPool::showTransactionsInPool(); break;
-            case '4': BlockChain::show_blocks(1, true); break;
+            
+            case '4':
+                std::cout << "\nNumber o blocks: "; std::cin >> numberOfBlocks;
+                BlockChain::show_blocks(numberOfBlocks, true); 
+            break;
+            
             case 'E': break;
-            default: std::cout << '\a'; break;
+            default: std::cout << '\n'; break;
         }
     }
     delete chain;

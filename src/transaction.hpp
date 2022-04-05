@@ -4,7 +4,8 @@
 #include <string>
 
 class Transaction{
-    static size_t transactionId;
+    static int transactionId;
+    int currentTransactionId;
     size_t coin_number;
     std::string sender, recipient;
     time_t create_time;

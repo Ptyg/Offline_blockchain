@@ -36,7 +36,8 @@ void Block::display_block_info() const{
 void Block::display_block_info_with_transactions_info() const{ 
     display_block_info();
 
-    for (auto& transaction : transactions)
+    for (const auto& transaction : transactions){
+        std::cout << "-----------------------------------------------------------------------\n";
         transaction.display_transaction_info();
-    
+    }
 }

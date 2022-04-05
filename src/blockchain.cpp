@@ -16,11 +16,13 @@ void BlockChain::show_blocks(int amount /*= 1*/, bool transactionInfo){
 
     for (int i = currentBlockNumber - 1; i >= chainSize - amount; i--)
     {
-        std::cout << "\n################################## " << i << " ##################################\n";
+        std::cout << "#######################################################################\n";
         if (transactionInfo){
             blockchain[i].display_block_info_with_transactions_info();
         }
-        blockchain[i].display_block_info();
+        else{
+            blockchain[i].display_block_info();
+        }
     }
 }
 

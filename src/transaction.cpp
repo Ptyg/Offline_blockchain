@@ -1,16 +1,17 @@
 #include "transaction.hpp"
 #include <iostream>
 
-size_t Transaction::transactionId = 0;
+int Transaction::transactionId = 0;
 
 Transaction::Transaction(size_t&& coin_number, std::string&& sender, std::string&& recipient, time_t&& create_time) 
-    : coin_number(std::move(coin_number)), sender(std::move(sender)), recipient(std::move(recipient)), create_time(std::move(create_time)) 
+    : coin_number(std::move(coin_number)), sender(std::move(sender)), recipient(std::move(recipient)), 
+    create_time(std::move(create_time)), currentTransactionId(transactionId)
     {
-        transactionId = transactionId + 1;
+        transactionId++;
     } 
 
 void Transaction::display_transaction_info() const{
-    std::cout << "Transaction Id" << transactionId << '\n';
+    std::cout << "Transaction Id: " << currentTransactionId << '\n';
     std::cout << "Sender: " << sender << '\n';
     std::cout << "Recipient: " << recipient << '\n';
     std::cout << "Coin number: " << coin_number << '\n';
