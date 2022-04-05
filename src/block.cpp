@@ -6,7 +6,7 @@
 int Block::idx = 0;
 
 Block::Block(std::vector<Transaction>&& transactions, size_t prevHash) 
-    : block_id(idx++), prevHash(prevHash), transactions(transactions){}
+    : block_id(idx++), prevHash(std::move(prevHash)), transactions(std::move(transactions)){}
 
 const size_t& Block::getHash() const{ return blockHash; }
 const size_t& Block::getPreviousHash() const{ return prevHash; }

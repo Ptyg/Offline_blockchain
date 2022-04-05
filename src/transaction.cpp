@@ -4,7 +4,7 @@
 size_t Transaction::transactionId = 0;
 
 Transaction::Transaction(size_t&& coin_number, std::string&& sender, std::string&& recipient, time_t&& create_time) 
-    : coin_number(coin_number), sender(sender), recipient(recipient), create_time(create_time) 
+    : coin_number(std::move(coin_number)), sender(std::move(sender)), recipient(std::move(recipient)), create_time(std::move(create_time)) 
     {
         transactionId = transactionId + 1;
     } 

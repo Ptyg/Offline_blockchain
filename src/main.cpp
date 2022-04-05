@@ -8,10 +8,8 @@
 #include <memory>
 #include <ctime>
 
-const BlockChain* const chain = BlockChain::get_instance(); 
-const TransactionPool* const pool = TransactionPool::get_instance();
 
-void add_transaction(){
+void add_transaction(const TransactionPool* pool){
     size_t coinNum;
     std::string sender, recipient;
     time_t createdTime;
@@ -26,6 +24,8 @@ void add_transaction(){
 
 int main()
 {
+    const BlockChain* chain = BlockChain::get_instance(); 
+    const TransactionPool* pool = TransactionPool::get_instance();
     char ch;
 
     while (ch != 'E'){
@@ -38,7 +38,7 @@ int main()
         std::cout << "Choice: "; std::cin >> ch;
 
         switch(ch){
-            case '1': add_transaction(); break;
+            case '1': add_transaction(pool); break;
 
             case '2': 
                 int numberOfBlocks;

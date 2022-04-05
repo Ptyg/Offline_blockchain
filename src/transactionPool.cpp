@@ -27,14 +27,14 @@ void TransactionPool::loadTransactionsInBlock(){
 }
 
 void TransactionPool::addTransaction(Transaction&& transaction){
-    if (currentTransactionNumber < maxTransactionNumber){
-        transactionPool.push_back(transaction); 
+    if (currentTransactionNumber < maxTransactionNumber - 1){
+        transactionPool.push_back(std::move(transaction)); 
         currentTransactionNumber++;
     }
     else{
         loadTransactionsInBlock();
         transactionPool.clear();
-        transactionPool.push_back(transaction);
+        transactionPool.push_back(std::move(transaction));
         currentTransactionNumber = 1;
     }
 }

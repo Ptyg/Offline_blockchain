@@ -29,7 +29,7 @@ void BlockChain::show_block_info(size_t id) { blockchain[id].display_block_info(
 Block& BlockChain::get_latest_block() { return blockchain[blockchain.size() - 1]; }
 
 void BlockChain::add_block(Block&& newBlock){
-    blockchain.push_back(newBlock);
+    blockchain.push_back(std::move(newBlock));
 }
 
 std::vector<Block> BlockChain::initBlockchain(){ 
