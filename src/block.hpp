@@ -12,9 +12,7 @@ class Block{
     std::vector<Transaction> transactions;
     static int idx;
     
-public:
-    Block(Block&) = delete;
-    
+public:    
     Block(std::vector<Transaction>&&, size_t);
     void display_block_info() const;
     void display_block_info_with_transactions_info() const;

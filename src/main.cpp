@@ -8,7 +8,10 @@
 #include <memory>
 #include <ctime>
 
-void add_transaction(const TransactionPool* pool){
+const BlockChain* const chain = BlockChain::get_instance(); 
+const TransactionPool* const pool = TransactionPool::get_instance();
+
+void add_transaction(){
     size_t coinNum;
     std::string sender, recipient;
     time_t createdTime;
@@ -23,8 +26,6 @@ void add_transaction(const TransactionPool* pool){
 
 int main()
 {
-    BlockChain* chain = BlockChain::get_instance(); 
-    TransactionPool* pool = TransactionPool::get_instance();
     char ch;
 
     while (ch != 'E'){
@@ -37,7 +38,7 @@ int main()
         std::cout << "Choice: "; std::cin >> ch;
 
         switch(ch){
-            case '1': add_transaction(pool); break;
+            case '1': add_transaction(); break;
 
             case '2': 
                 int numberOfBlocks;
@@ -56,4 +57,4 @@ int main()
     return 0;
 }
 
-// идея с массивом не увенчалась успехом, возвращаемся к ветору
+// block.hpp конструктор коипрования(?). Ругается на него при компиляции
