@@ -7,17 +7,38 @@
 #include <string>
 #include <memory>
 #include <ctime>
+#include <stdexcept>
 
 
 void add_transaction(const TransactionPool* pool){
-    size_t coinNum;
+    int coinNum;
     std::string sender, recipient;
     time_t createdTime;
 
-    std::cout << "Number of coins: "; std::cin >> coinNum;
-    std::cout << "Sender: "; std::cin >> sender;
-    std::cout << "Recipient: "; std::cin >> recipient;
+    auto check_input = [](const bool& check){
+        if (!check){ 
+            throw std::invalid_argument("Invalid input"); 
+        }
+    };
+    
+    try{
+        std::cout << "Number of coins: "; std::cin >> coinNum;
+        check_input(std::cin.good());
 
+        std::cout << "Sender: "; std::cin >> sender;
+        check_input(std::cin.good());
+
+        std::cout << "Recipient: "; std::cin >> recipient;
+        check_input(std::cin.good());
+
+    }
+    catch(const std::invalid_argument& e){
+        std::cout << "Error: " << e.what() << std::endl;
+        std::cin.clear();
+        std::cin.ignore();
+        return;
+    }
+    
     Transaction newTransaction(std::move(coinNum), std::move(sender), std::move(recipient), std::move(time(&createdTime)));
     pool->addTransaction(std::move(newTransaction));
 }
