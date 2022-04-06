@@ -63,14 +63,14 @@ int main()
             case '1': add_transaction(pool); break;
 
             case '2': 
-                std::cout << "\nNumber o blocks: "; std::cin >> numberOfBlocks;
+                std::cout << "\nNumber of blocks: "; std::cin >> numberOfBlocks;
                 BlockChain::show_blocks(numberOfBlocks); 
             break;
 
             case '3': TransactionPool::showTransactionsInPool(); break;
             
             case '4':
-                std::cout << "\nNumber o blocks: "; std::cin >> numberOfBlocks;
+                std::cout << "\nNumber of blocks: "; std::cin >> numberOfBlocks;
                 BlockChain::show_blocks(numberOfBlocks, true); 
             break;
             
