@@ -5,25 +5,29 @@
 
 int Block::idx = 0;
 
-Block::Block(std::vector<Transaction>&& transactions, size_t prevHash) 
-    : block_id(idx++), prevHash(std::move(prevHash)), transactions(std::move(transactions)){}
+Block::Block(std::vector<Transaction>&& transactions, size_t&& prevHash) 
+    : block_id(idx++), prevHash(std::move(prevHash)), transactions(std::move(transactions)){
+        blockHash = generate_hash();
+    }
 
-const size_t& Block::getHash() const{ return blockHash; }
-const size_t& Block::getPreviousHash() const{ return prevHash; }
+size_t Block::getHash() const{ return blockHash; }
+size_t Block::getPreviousHash() const{ return prevHash; }
 
-bool Block::isHashValid(){ return generate_hash() == blockHash; }
+bool Block::isHashValid(int blockId){ 
+    return (generate_hash() == blockHash);
+}
 
 size_t Block::generate_hash(){
     std::hash<size_t> finalHash;
     std::hash<std::string> hash1;
     std::hash<size_t> hash2;
     std::string toHash;
-
-    for (Transaction& trans : transactions){
-        toHash = std::to_string(trans.get_coin_number()) + trans.get_sender() + trans.get_recipient() + std::to_string(trans.get_create_time()); 
+    
+    for (const auto& trans : transactions){
+        toHash += std::to_string(trans.get_coin_number()) + trans.get_sender() + trans.get_recipient() + std::to_string(trans.get_create_time()); 
     }
 
-    return finalHash(hash1(toHash) + hash2(prevHash));
+    return std::move(finalHash((hash1(toHash) + hash2(prevHash))));
 }
 
 void Block::display_block_info() const{

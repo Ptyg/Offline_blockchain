@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-int BlockChain::currentBlockNumber = 0;
-
 BlockChain::BlockChain() {}
 
 void BlockChain::show_blocks(int amount /*= 1*/, bool transactionInfo){    
@@ -14,7 +12,7 @@ void BlockChain::show_blocks(int amount /*= 1*/, bool transactionInfo){
         return;
     }
 
-    for (int i = currentBlockNumber - 1; i >= chainSize - amount; i--)
+    for (int i = chainSize - 1; i >= chainSize - amount; i--)
     {
         std::cout << "#######################################################################\n";
         if (transactionInfo){
@@ -28,17 +26,16 @@ void BlockChain::show_blocks(int amount /*= 1*/, bool transactionInfo){
 
 void BlockChain::show_block_info(size_t id) { blockchain[id].display_block_info(); }
 
-Block& BlockChain::get_latest_block() { return blockchain[currentBlockNumber - 1]; }
+Block& BlockChain::get_latest_block() { return blockchain[blockchain.size() - 1]; }
 
 void BlockChain::add_block(Block&& newBlock){
     blockchain.push_back(std::move(newBlock));
-    currentBlockNumber++;
 }
 
 std::vector<Block> BlockChain::initBlockchain(){ 
     std::vector<Block> temp;
     temp.reserve(100); 
-    return temp;    
+    return std::move(temp);    
 }
 
 std::vector<Block> BlockChain::blockchain(initBlockchain());

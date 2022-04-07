@@ -22,7 +22,7 @@ std::vector<Transaction> TransactionPool::initPool(){
 TransactionPool::TransactionPool() {}
 
 void TransactionPool::loadTransactionsInBlock(){
-    Block newBlock(std::move(transactionPool), BlockChain::get_latest_block().getHash());
+    Block newBlock(std::move(transactionPool), std::move(BlockChain::get_latest_block().getHash()));
     BlockChain::add_block(std::move(newBlock));
 }
 

@@ -9,7 +9,6 @@ class BlockChain{
     static std::vector<Block> blockchain;
     static std::vector<Block> initBlockchain(); 
     static BlockChain *blockchainInstance;
-    static int currentBlockNumber;
 protected:
     BlockChain();
 public:
