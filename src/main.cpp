@@ -51,7 +51,8 @@ int main()
     int numberOfBlocks;
 
     while (ch != 'E'){
-        std::cout << "\nWhat do you want to do?\n\n";
+        std::cout << "\n=====================================\n";
+        std::cout << "What do you want to do?\n";
         std::cout << "01. Add transaction\n";
         std::cout << "02. Show blocks\n";
         std::cout << "03. Show transaction pool\n";
