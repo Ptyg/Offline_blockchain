@@ -13,7 +13,7 @@ First at all, i have got the basic code structure from
 
 Each blockhain has blocks and here is my block structure 
 
-![block](screenshots/block.png)​
+![block](screenshots/block.PNG)​
 
 ---
 Entities description
@@ -34,7 +34,7 @@ Entities description
 
 Next, we will check the transaction pool like in bitcoin's blockchain. It is a place, where unconfirmed transactions are stored.
 
-![transaction pool](screenshots/transact_pool.png)​
+![transaction pool](screenshots/transact_pool.PNG)​
 
 ---
 Entities description
@@ -47,7 +47,7 @@ Entities description
 
 ## Process explanation
 
-Let`s imagine, i want to send 5 *the_best_coins* to my friend Alex, so i need to create a transaction and write some data. Now it will look like this.
+Let us imagine, i want to send 5 *the_best_coins* to my friend Alex, so i need to create a transaction and write some data. Now it will look like this.
 
 ![transaction pool original](screenshots/transaction_orig.png)​
 ![transaction pool](screenshots/transact_example.png)​
@@ -59,13 +59,13 @@ The next step is to load our transaction to the transaction pool and wait for th
 
 ![load transaction into pool](screenshots/loading_transaction.png)​
 
-When transaction pool is full, it`s time to create a new block and all transaction are moving to it.
+When transaction pool is full, it is time to create a new block and all transaction are moving to it.
 
-![load transaction into block](screenshots/load_into_block.png)​
+![load transaction into block](screenshots/load_into_block.PNG)​
 
 After that, block hash generation starts and when it ends, block is created and our transaction with Alex is confirmed! Hooray!
 
-![chain example](screenshots/chain_exmpl.png)​
+![chain example](screenshots/chain_exmpl.PNG)​
 
 Whait a minute, what is a Genesis block? Oh, it is just the first block in each blockchain. He has no importand data, but, theoreticaly, we can store some fun information like blockchain creator`s first and last names.
 
