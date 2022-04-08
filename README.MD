@@ -63,7 +63,7 @@ When transaction pool is full, it`s time to create a new block and all transacti
 
 ![load transaction into block](screenshots/load_into_block.png)​
 
-After that, block hash generation starts and when it ends, block is created amd our transaction with Alex is confirmed! Hooray!
+After that, block hash generation starts and when it ends, block is created and our transaction with Alex is confirmed! Hooray!
 
 ![chain example](screenshots/chain_exmpl.png)​
 
@@ -71,3 +71,11 @@ Whait a minute, what is a Genesis block? Oh, it is just the first block in each 
 
 Well, in general, it is the main information about work process.
 
+## Technical part
+
+I am using g++ 8.1.0
+
+Comand to compile:
+```
+g++ transaction.cpp block.cpp blockchain.cpp transactionPool.cpp main.cpp -o <filename>
+```
