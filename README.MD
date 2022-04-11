@@ -49,15 +49,15 @@ Entities description
 
 Let us imagine, i want to send 5 *the_best_coins* to my friend Alex, so i need to create a transaction and write some data. Now it will look like this.
 
-![transaction pool original](screenshots/transaction_orig.png)​
-![transaction pool](screenshots/transact_example.png)​
+![transaction pool original](screenshots/transaction_orig.PNG)​
+![transaction pool](screenshots/transact_example.PNG)​
 
 Transaction id and time will be generated automatically.
 
 The next step is to load our transaction to the transaction pool and wait for the pool to fill up.
 
 
-![load transaction into pool](screenshots/loading_transaction.png)​
+![load transaction into pool](screenshots/loading_transaction.PNG)​
 
 When transaction pool is full, it is time to create a new block and all transaction are moving to it.
 
