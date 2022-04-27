@@ -1,0 +1,3 @@
+C:/Programming/blockchainTest/build/CMakeFiles/testlalala.dir
+C:/Programming/blockchainTest/build/CMakeFiles/ALL_BUILD.dir
+C:/Programming/blockchainTest/build/CMakeFiles/ZERO_CHECK.dir
