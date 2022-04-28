@@ -73,9 +73,7 @@ Well, in general, it is the main information about work process.
 
 ## Technical part
 
-I am using g++ 8.1.0
-
-Comand to compile:
+If you want to compile with g++, go to src dir and paste:
 ```
 g++ transaction.cpp block.cpp blockchain.cpp transactionPool.cpp main.cpp -o <filename>
 ```
